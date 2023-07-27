@@ -9,20 +9,20 @@ public class Pelanggan {
     private String namaBelakang;
     private String Nomor;
 
-   private String fileName = "C:/Users/LENOVO/IdeaProjects/pelanggan/src/NamaPelanggan.txt";
+    private String fileName = "C:/Users/LENOVO/IdeaProjects/pelanggan/src/NamaPelanggan.txt";
     private boolean isDataAvailable = false;
 
-    Pelanggan(String namaDepan, String namaBelakang, String nomor){
+    Pelanggan(String namaDepan, String namaBelakang, String nomor) {
         this.namaDepan = namaDepan;
         this.namaBelakang = namaBelakang;
         this.Nomor = nomor;
     }
 
-    public void setNamaDepan (String namaDepan){
+    public void setNamaDepan(String namaDepan) {
         this.namaDepan = namaDepan;
     }
 
-    public void setNamaBelakang (String namaBelakang){
+    public void setNamaBelakang(String namaBelakang) {
         this.namaBelakang = namaBelakang;
     }
 
@@ -34,9 +34,9 @@ public class Pelanggan {
         return Nomor;
     }
 
-    public String getNamaLengkap (){
+    public String getNamaLengkap() {
 
-        String namaLengkap = namaDepan.concat (" "+namaBelakang);
+        String namaLengkap = namaDepan.concat(" " + namaBelakang);
         return namaLengkap;
     }
 
@@ -47,7 +47,7 @@ public class Pelanggan {
 
             String line;
 
-            String newData = getNamaLengkap()+", "+getNomor();
+            String newData = getNamaLengkap() + ", " + getNomor();
 
             while ((line = reader.readLine()) != null) {
                 if (line.equals(newData)) {
@@ -61,7 +61,7 @@ public class Pelanggan {
             // Menambahkan data baru jika tidak ada data yang sama
             if (!isDataAvailable) {
                 BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
-                writer.write(getNamaLengkap()+", "+getNomor());
+                writer.write(getNamaLengkap() + ", " + getNomor());
                 writer.newLine();
                 writer.close();
                 System.out.println("\nAnda berhasil Terdaftar.\n");
@@ -73,4 +73,4 @@ public class Pelanggan {
             System.out.println("file tidak tersedia : " + e.getMessage());
         }
     }
-
+}
